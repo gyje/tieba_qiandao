@@ -2,9 +2,9 @@ import requests,time,gevent,gevent.monkey,re
 from threading import Thread
 gevent.monkey.patch_socket()
 
-url="http://tieba.baidu.com/mo/....../&kw="
-ba_cookie=""
-ba_name_tuple=('steam','单机游戏','使命召唤6','杀戮间','汉服','图拉丁','为知笔记')#windows下gevent有1024个Port限制,所以超过1024个可能出错
+url="http://tieba.baidu.com/mo/....../&kw="#不是完全复制URL,只保留到"kw="处
+ba_cookie="把cookie复制到这里"
+ba_name_tuple=('steam','单机游戏','使命召唤6','杀戮间','汉服','图拉丁','为知笔记')#替换成自己的贴吧,windows下gevent有1024个Port限制,所以超过1024个可能出错
 
 headers={
 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
