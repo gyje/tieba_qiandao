@@ -1,10 +1,10 @@
-import requests,time,gevent,gevent.monkey,re
+import requests,time,gevent,gevent.monkey,re,os
 from threading import Thread
+from pyquery import PyQuery as pq
 gevent.monkey.patch_socket()
 
-url="http://tieba.baidu.com/mo/....../&kw="#不是完全复制URL,只保留到"kw="处
-ba_cookie="把cookie复制到这里"
-ba_name_tuple=('steam','单机游戏','使命召唤6','杀戮间','汉服','图拉丁','为知笔记')#替换成自己的贴吧,windows下gevent有1024个Port限制,所以超过1024个可能出错
+url="http://tieba.baidu.com/mo/q...&kw="#不是完全复制URL,只保留到"kw="处
+ba_cookie='把cookies复制到这儿'
 
 headers={
 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -35,7 +35,27 @@ def checkth():
 	for g in ba_name_tuple:
 		m=Thread(target=check,args=(g,))
 		m.start()
+def writeconfig():
+	temp=pq(requests.get("http://wapp.baidu.com/",headers={'Cookie':ba_cookie}).content)
+	ba_all_url="http://"+str([i.attr("href") for i in temp(".my_love_bar").children().items()][-1])[2:]
+	retemp=re.compile(r">\w*</a>")
+	ba_name_list=[]
+	for i in retemp.findall(requests.get(ba_all_url,headers={'Cookie':ba_cookie}).text)[1:-2]:
+		ba_name_list.append(i[1:-4])
+	with open("qd_config.ini","w+",encoding="utf-8") as fob:
+		fob.write(str(tuple(ba_name_list)))
+def checkconfig():
+	if "qd_config.ini" in os.listdir(os.getcwd()):
+		pass
+	else:
+		writeconfig()
+def readconfig():
+	global ba_name_tuple
+	with open("qd_config.ini","r",encoding="utf-8") as fob:
+		ba_name_tuple=eval(fob.read())
 if __name__=="__main__":
+	checkconfig()
+	readconfig()
 	index=input("how work?\n")
 	if index=="go":
 		star=time.time()
@@ -43,4 +63,3 @@ if __name__=="__main__":
 		print (time.time()-star)
 	else:
 		checkth()
-	
