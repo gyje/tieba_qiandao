@@ -1,6 +1,7 @@
 # tieba_qiandao
 #### 百度贴吧极速签到,200个吧用时1.6秒,简单直接 <br />
 **需要的第三方库:requests,gevent,pyquery**.<br />
+**安装第三方库```pip install requests/gevent/pyquery```**
 
 **配置:**<br />
 **Update:**
