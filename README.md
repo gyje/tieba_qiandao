@@ -5,7 +5,7 @@
 **配置:**
 1. 先正常登录[百度贴吧](tieba.baidu.com),然后访问[WAP贴吧](http://wapp.baidu.com/)<br />
 2. F12打开控制台,Network选项卡,点击左上角我爱逛的贴吧,![点击左上角我爱逛的贴吧](http://opgtctagy.bkt.clouddn.com/1.png)<br />
-3. 把图中的Request Headers内容复制替换qiandao.py中的Headers,复制图中的RequestURL,到`fid=...&kw=`截至,替换qiandao.py中的url,把cookie复制到qiandao.py中ba_cookie处![tu2](http://opgtctagy.bkt.clouddn.com/2.png)<br />
+3. <s>把图中的Request Headers内容复制替换qiandao.py中的Headers,复制图中的RequestURL,到`fid=...&kw=`截至,替换qiandao.py中的url,</s>把cookie复制到qiandao.py中ba_cookie处![tu2](http://opgtctagy.bkt.clouddn.com/2.png)<br />
 
 **运行:**<br />
 首次运行会在文件同目录下生成qd_config.ini配置文件<br />
