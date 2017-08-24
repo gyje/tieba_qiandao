@@ -3,7 +3,7 @@ from threading import Thread
 from pyquery import PyQuery as pq
 gevent.monkey.patch_socket()
 
-url="http://tieba.baidu.com/mo/q...&kw="#不是完全复制URL,只保留到"kw="处
+url="http://tieba.baidu.com/mo/q---029808E64D5CDE5799DE56F30E8B2DC4%3AFG%3D1--1-3-0--2--wapp_1503542028843_339/m?kw="
 ba_cookie='把cookies复制到这儿'
 
 headers={
