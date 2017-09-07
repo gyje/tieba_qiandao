@@ -4,6 +4,8 @@
 **安装第三方库```pip install requests/gevent/pyquery```**
 
 **配置:**<br />
+**Update:2017年9月7日22:53:37:**
+暂时不能使用,请等待更新.<br />
 **Update:**
 在网页端登陆百度贴吧，F12打开控制台，复制你的cookie到ba_cookie处,OK.
 ![说明图片](http://opgtctagy.bkt.clouddn.com/Snipaste_2017-08-24_10-45-10.png)
