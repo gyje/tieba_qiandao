@@ -1,10 +1,11 @@
 import requests,time,gevent,gevent.monkey,re,os
 from threading import Thread
+import schedule
 from pyquery import PyQuery as pq
 gevent.monkey.patch_socket()
 
 url="http://tieba.baidu.com/mo/q---F55A5B1F58548A7A5403ABA7602FEBAE%3AFG%3D1--1-1-0--2--wapp_1510665393192_464/sign?tbs=af62312bf49309c61510669752&fid=152744&kw="
-ba_cookie='把cookies复制到这儿'
+ba_cookie='把cookie放到这'
 
 headers={
 'Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
@@ -53,13 +54,12 @@ def readconfig():
 	global ba_name_tuple
 	with open("qd_config.ini","r",encoding="utf-8") as fob:
 		ba_name_tuple=eval(fob.read())
-if __name__=="__main__":
+def serun():
 	checkconfig()
 	readconfig()
-	index=input("how work?\n")
-	if index=="go":
-		star=time.time()
-		go()
-		print (time.time()-star)
-	else:
-		checkth()
+	go()
+if __name__=="__main__":
+	schedule.every().day.at("00:10").do(serun) #每天的签到时间
+	while 1:
+		schedule.run_pending()
+		time.sleep(1)
