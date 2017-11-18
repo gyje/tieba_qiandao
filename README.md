@@ -12,6 +12,7 @@
 首次运行会在文件同目录下生成qd_config.ini配置文件<br />
 
 在linuxVPS上运行定时签到:
+
 `chmod 777 百度贴吧签到.py`
 
 `nohup python3 百度贴吧签到.py > qiandao.txt 2>&1 &`
